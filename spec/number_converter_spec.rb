@@ -1,7 +1,13 @@
 require_relative "../src/number_converter"
 
-describe "NumberConverter" do
-  subject { NumberConverter.one }
+RSpec.describe NumberConverter do
+  before do
+    @fizz_buzz = NumberConverter.new
+  end
 
-  it { should eq 1 }
+  describe "#converter" do
+    it "1の時" do
+      expect(@fizz_buzz.converter 1).eq 1
+    end
+  end
 end
