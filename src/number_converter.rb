@@ -1,5 +1,9 @@
 class NumberConverter
   def converter(n)
-    n.to_s
+    if n == 3
+      "Fizz"
+    else
+      n.to_s
+    end
   end
 end
