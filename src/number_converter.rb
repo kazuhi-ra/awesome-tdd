@@ -9,6 +9,10 @@ class NumberConverter
   end
 
   def convert(n)
-    ""
+    if @replace_rules.empty?
+      ""
+    else
+      @replace_rules[0].replace(n)
+    end
   end
 end
