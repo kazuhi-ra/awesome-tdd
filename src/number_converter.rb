@@ -1,13 +1,14 @@
 class NumberConverter
-  def converter(n)
-    if n % 15 == 0
-      "FizzBuzz"
-    elsif n % 3 == 0
-      "Fizz"
-    elsif n % 5 == 0
-      "Buzz"
-    else
-      n.to_s
+  attr_reader :replace_rules
+
+  def initialize(replace_rules)
+    unless replace_rules.instance_of? Array
+      raise ArgumentError.new("Argument should be Array.")
     end
+    @replace_rules = replace_rules
+  end
+
+  def convert(n)
+    ""
   end
 end
