@@ -9,7 +9,7 @@ class NumberConverter
   end
 
   def convert(n)
-    @replace_rules.reduce("") do |accum, current_rule|
+    self.replace_rules.reduce("") do |accum, current_rule|
       accum + current_rule.replace(n)
     end
   end
