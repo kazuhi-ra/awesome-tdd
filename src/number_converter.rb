@@ -3,7 +3,11 @@ class NumberConverter
     if n == 3
       "Fizz"
     else
-      n.to_s
+      if n == 5
+        "Buzz"
+      else
+        n.to_s
+      end
     end
   end
 end
