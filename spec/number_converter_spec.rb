@@ -42,6 +42,23 @@ RSpec.describe NumberConverter do
           it { should eq "FizzBuzz" }
         end
       end
+
+      context "ruleが3つ" do
+        let(:rules) do
+          rule1 = double("rule1")
+          rule2 = double("rule2")
+          rule3 = double("rule3")
+          allow(rule1).to receive(:replace).with(1).and_return("")
+          allow(rule2).to receive(:replace).with(1).and_return("")
+          allow(rule3).to receive(:replace).with(1).and_return("1")
+          [rule1, rule2, rule3]
+        end
+
+        context "1の時" do
+          let(:input) { 1 }
+          it { should eq "1" }
+        end
+      end
     end
   end
 end
