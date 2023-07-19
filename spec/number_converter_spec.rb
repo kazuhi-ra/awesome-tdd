@@ -1,21 +1,24 @@
 require_relative "../src/number_converter"
 
 RSpec.describe NumberConverter do
-  before do
-    @fizz_buzz = NumberConverter.new
-  end
-
   describe "#converter" do
-    it "1の時" do
-      expect(@fizz_buzz.converter 1).to eq "1"
+    subject do
+      NumberConverter.new.converter(input)
     end
 
-    it "2の時" do
-      expect(@fizz_buzz.converter 2).to eq "2"
+    context "1の時" do
+      let(:input) { 1 }
+      it { should eq "1" }
     end
 
-    it "3の時" do
-      expect(@fizz_buzz.converter 3).to eq "Fizz"
+    context "2の時" do
+      let(:input) { 2 }
+      it { should eq "2" }
+    end
+
+    context "3の時" do
+      let(:input) { 3 }
+      it { should eq "Fizz" }
     end
   end
 end
