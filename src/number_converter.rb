@@ -1,5 +1,5 @@
 class NumberConverter
   def converter(n)
-    1
+    n
   end
 end
