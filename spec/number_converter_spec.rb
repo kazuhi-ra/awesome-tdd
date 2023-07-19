@@ -5,11 +5,13 @@ require_relative "../src/path_through_rule"
 RSpec.describe NumberConverter do
   describe "#convert" do
     subject do
-      converter = NumberConverter.new([
-        CylicNumberRule.new(3, "Fizz"),
-        CylicNumberRule.new(5, "Buzz"),
-        PathThroughRule.new(),
-      ])
+      converter = NumberConverter.new(
+        [
+          CylicNumberRule.new(3, "Fizz"),
+          CylicNumberRule.new(5, "Buzz"),
+        ],
+        [PathThroughRule.new()]
+      )
       converter.convert(input)
     end
 
