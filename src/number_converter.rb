@@ -9,10 +9,8 @@ class NumberConverter
   end
 
   def convert(n)
-    if @replace_rules.empty?
-      ""
-    else
-      @replace_rules[0].replace(n)
+    @replace_rules.reduce("") do |accum, current_rule|
+      accum + current_rule.replace(n)
     end
   end
 end
