@@ -14,11 +14,12 @@ class CylicNumberRule
     @replacement = replacement
   end
 
-  def replace(n)
-    if n % self.base == 0
-      self.replacement
-    else
-      ""
-    end
+  def replace(n, result)
+    tail = if n % self.base == 0
+        self.replacement
+      else
+        ""
+      end
+    result + tail
   end
 end
