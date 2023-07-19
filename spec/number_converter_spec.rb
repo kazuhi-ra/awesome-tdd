@@ -13,5 +13,9 @@ RSpec.describe NumberConverter do
     it "2の時" do
       expect(@fizz_buzz.converter 2).to eq "2"
     end
+
+    it "3の時" do
+      expect(@fizz_buzz.converter 3).to eq "Fizz"
+    end
   end
 end
