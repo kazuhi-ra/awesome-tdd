@@ -30,5 +30,10 @@ RSpec.describe NumberConverter do
       let(:input) { 5 }
       it { should eq "Buzz" }
     end
+
+    context "6の時" do
+      let(:input) { 6 }
+      it { should eq "Fizz" }
+    end
   end
 end
