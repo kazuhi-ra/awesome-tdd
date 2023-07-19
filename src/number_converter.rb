@@ -1,9 +1,9 @@
 class NumberConverter
   def converter(n)
-    if n == 3
+    if n % 3 == 0
       "Fizz"
     else
-      if n == 5
+      if n % 5 == 0
         "Buzz"
       else
         n.to_s
