@@ -21,5 +21,17 @@ describe('NumberConverter', () => {
         expect(fizzBuzz.convert(3)).toBe('Fizz')
       })
     })
+
+    describe('4のとき', () => {
+      it('Fizzが返る', () => {
+        expect(fizzBuzz.convert(4)).toBe('4')
+      })
+    })
+
+    describe('5のとき', () => {
+      it('Buzzが返る', () => {
+        expect(fizzBuzz.convert(5)).toBe('Buzz')
+      })
+    })
   })
 })
