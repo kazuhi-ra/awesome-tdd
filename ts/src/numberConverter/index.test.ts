@@ -18,6 +18,13 @@ describe('NumberConverter', () => {
       })
     })
 
+    describe('15の倍数とき', () => {
+      it('FizzBuzzが返る', () => {
+        expect(fizzBuzz.convert(15)).toBe('FizzBuzz')
+        expect(fizzBuzz.convert(30)).toBe('FizzBuzz')
+      })
+    })
+
     describe('1のとき', () => {
       it('数値が文字列になって返る', () => {
         expect(fizzBuzz.convert(1)).toBe('1')
@@ -33,12 +40,6 @@ describe('NumberConverter', () => {
     describe('4のとき', () => {
       it('Fizzが返る', () => {
         expect(fizzBuzz.convert(4)).toBe('4')
-      })
-    })
-
-    describe('15のとき', () => {
-      it('FizzBuzzが返る', () => {
-        expect(fizzBuzz.convert(15)).toBe('FizzBuzz')
       })
     })
   })
