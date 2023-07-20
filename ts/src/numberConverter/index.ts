@@ -1,17 +1,13 @@
 export class NumberConverter {
   convert(n: number): string {
-    if (n % 3 === 0) {
-      if (n % 5 === 0) {
-        return 'FizzBuzz'
-      } else {
-        return 'Fizz'
-      }
+    if (n % 15 === 0) {
+      return 'FizzBuzz'
+    } else if (n % 3 === 0) {
+      return 'Fizz'
+    } else if (n % 5 === 0) {
+      return 'Buzz'
     } else {
-      if (n % 5 === 0) {
-        return 'Buzz'
-      } else {
-        return `${n}`
-      }
+      return `${n}`
     }
   }
 }
