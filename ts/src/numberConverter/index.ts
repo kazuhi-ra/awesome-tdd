@@ -1,5 +1,5 @@
 export class NumberConverter {
   convert(n: number): string {
-    return ''
+    return '1'
   }
 }

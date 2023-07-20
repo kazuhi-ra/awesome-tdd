@@ -1,3 +1,5 @@
+import { NumberConverter } from '.'
+
 describe('NumberConverter', () => {
   describe('convert', () => {
     const fizzBuzz = new NumberConverter()
