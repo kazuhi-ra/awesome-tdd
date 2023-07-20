@@ -3,7 +3,11 @@ export class NumberConverter {
     if (n === 3) {
       return 'Fizz'
     } else {
-      return `${n}`
+      if (n === 5) {
+        return 'Buzz'
+      } else {
+        return `${n}`
+      }
     }
   }
 }
