@@ -39,5 +39,11 @@ describe('NumberConverter', () => {
         expect(fizzBuzz.convert(6)).toBe('Fizz')
       })
     })
+
+    describe('10のとき', () => {
+      it('Buzzが返る', () => {
+        expect(fizzBuzz.convert(10)).toBe('Buzz')
+      })
+    })
   })
 })
