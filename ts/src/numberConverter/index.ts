@@ -1,5 +1,9 @@
 export class NumberConverter {
   convert(n: number): string {
-    return `${n}`
+    if (n === 3) {
+      return 'Fizz'
+    } else {
+      return `${n}`
+    }
   }
 }
