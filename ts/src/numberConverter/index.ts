@@ -8,6 +8,10 @@ export class NumberConverter {
   }
 
   convert(n: number): string {
-    return ''
+    if (this.#rules.length === 0) {
+      return ''
+    } else {
+      return this.#rules[0].replace(n)
+    }
   }
 }
