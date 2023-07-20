@@ -8,10 +8,9 @@ export class NumberConverter {
   }
 
   convert(n: number): string {
-    if (this.#rules.length === 0) {
-      return ''
-    } else {
-      return this.#rules[0].replace(n)
-    }
+    return this.#rules.reduce(
+      (accum, current) => accum + current.replace(n),
+      ''
+    )
   }
 }
