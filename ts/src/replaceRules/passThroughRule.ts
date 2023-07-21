@@ -2,11 +2,11 @@ import { ReplaceRule } from '.'
 
 export class PassThroughRule implements ReplaceRule {
   match(n: number, target: string): boolean {
-    return true
+    return target === ''
   }
 
-  apply(n: number, target: string): string {
-    return ''
+  apply(n: number): string {
+    return `${n}`
   }
 }
 
@@ -23,8 +23,8 @@ if (import.meta.vitest) {
     describe('apply', () => {
       it('数値を文字列に変換してそのまま返す', () => {
         const fizzRule = new PassThroughRule()
-        expect(fizzRule.apply(0, '')).toBe('0')
-        expect(fizzRule.apply(8, '')).toBe('8')
+        expect(fizzRule.apply(0)).toBe('0')
+        expect(fizzRule.apply(8)).toBe('8')
       })
     })
   })
