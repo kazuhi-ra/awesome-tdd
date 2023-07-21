@@ -14,7 +14,7 @@ export class CyclicNumberRule implements ReplaceRule {
   }
 
   apply(n: number, target: string): string {
-    return ''
+    return target + this.#replacement
   }
 }
 
