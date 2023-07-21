@@ -1,21 +1,30 @@
 import { ReplaceRule } from '.'
 
 export class PassThroughRule implements ReplaceRule {
-  replace(n: number): string {
-    return `${n}`
+  match(n: number, target: string): boolean {
+    return true
+  }
+
+  apply(n: number, target: string): string {
+    return ''
   }
 }
 
 if (import.meta.vitest) {
   describe('PassThroughRule', () => {
-    describe('replace', () => {
+    describe('match', () => {
+      it('3の倍数でtrueを返す', () => {
+        const fizzRule = new PassThroughRule()
+        expect(fizzRule.match(0, '')).toBe(true)
+        expect(fizzRule.match(0, 'kazuhi-ra')).toBe(false)
+      })
+    })
+
+    describe('apply', () => {
       it('数値を文字列に変換してそのまま返す', () => {
-        const passThroughRule = new PassThroughRule()
-        expect(passThroughRule.replace(1)).toBe('1')
-        expect(passThroughRule.replace(3)).toBe('3')
-        expect(passThroughRule.replace(5)).toBe('5')
-        expect(passThroughRule.replace(555)).toBe('555')
-        expect(passThroughRule.replace(666)).toBe('666')
+        const fizzRule = new PassThroughRule()
+        expect(fizzRule.apply(0, '')).toBe('0')
+        expect(fizzRule.apply(8, '')).toBe('8')
       })
     })
   })
