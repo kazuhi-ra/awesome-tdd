@@ -2,7 +2,7 @@ import { ReplaceRule } from '.'
 
 class PassThroughRule implements ReplaceRule {
   replace(n: number): string {
-    return ''
+    return `${n}`
   }
 }
 
