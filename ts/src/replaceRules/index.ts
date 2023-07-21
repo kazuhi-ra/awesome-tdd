@@ -1,4 +1,4 @@
 export interface ReplaceRule {
   match(n: number): boolean
-  apply(): string
+  apply(n: number, target: string): string
 }

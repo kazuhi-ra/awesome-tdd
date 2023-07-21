@@ -13,7 +13,7 @@ export class CyclicNumberRule implements ReplaceRule {
     return n % this.#base === 0
   }
 
-  apply(): string {
+  apply(n: number, target: string): string {
     return ''
   }
 }
@@ -26,6 +26,14 @@ if (import.meta.vitest) {
         expect(fizzRule.match(1)).toBe(false)
         expect(fizzRule.match(3)).toBe(true)
         expect(fizzRule.match(6)).toBe(true)
+      })
+    })
+
+    describe('apply', () => {
+      it('3の倍数でtrueを返す', () => {
+        const fizzRule = new CyclicNumberRule(3, 'Fizz')
+        expect(fizzRule.apply(0, '')).toBe('Fizz')
+        expect(fizzRule.apply(0, 'Buzz')).toBe('BuzzFizz')
       })
     })
   })
