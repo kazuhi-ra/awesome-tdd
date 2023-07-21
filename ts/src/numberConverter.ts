@@ -9,19 +9,20 @@ export class NumberConverter {
 
   convert(n: number): string {
     return this.#rules.reduce(
-      (accum, current) => (current.match(n) ? current.apply(n, accum) : accum),
+      (accum, current) =>
+        current.match(n, accum) ? current.apply(n, accum) : accum,
       ''
     )
   }
 }
 
 if (import.meta.vitest) {
-  // const { CyclicNumberRule } = await import(
-  //   '../src/replaceRules/cyclicNumberRule'
-  // )
-  // const { PassThroughRule } = await import(
-  //   '../src/replaceRules/passThroughRule'
-  // )
+  const { CyclicNumberRule } = await import(
+    '../src/replaceRules/cyclicNumberRule'
+  )
+  const { PassThroughRule } = await import(
+    '../src/replaceRules/passThroughRule'
+  )
 
   describe('NumberConverter', () => {
     describe('Unit Test', () => {
@@ -103,27 +104,27 @@ if (import.meta.vitest) {
       })
     })
 
-    // describe('Integration Test', () => {
-    //   const fizzRule = new CyclicNumberRule(3, 'Fizz')
-    //   const buzzRule = new CyclicNumberRule(5, 'Buzz')
-    //   const passThroughRule = new PassThroughRule()
-    //   const fizzBuzz = new NumberConverter([
-    //     fizzRule,
-    //     buzzRule,
-    //     passThroughRule,
-    //   ])
+    describe('Integration Test', () => {
+      const fizzRule = new CyclicNumberRule(3, 'Fizz')
+      const buzzRule = new CyclicNumberRule(5, 'Buzz')
+      const passThroughRule = new PassThroughRule()
+      const fizzBuzz = new NumberConverter([
+        fizzRule,
+        buzzRule,
+        passThroughRule,
+      ])
 
-    //   it('FizzBuzz', () => {
-    //     expect(fizzBuzz.convert(1)).toBe('1')
-    //     expect(fizzBuzz.convert(2)).toBe('2')
-    //     expect(fizzBuzz.convert(3)).toBe('Fizz')
-    //     expect(fizzBuzz.convert(4)).toBe('4')
-    //     expect(fizzBuzz.convert(5)).toBe('Buzz')
-    //     expect(fizzBuzz.convert(6)).toBe('Fizz')
-    //     expect(fizzBuzz.convert(10)).toBe('Buzz')
-    //     expect(fizzBuzz.convert(15)).toBe('FizzBuzz')
-    //     expect(fizzBuzz.convert(30)).toBe('FizzBuzz')
-    //   })
-    // })
+      it('FizzBuzz', () => {
+        expect(fizzBuzz.convert(1)).toBe('1')
+        expect(fizzBuzz.convert(2)).toBe('2')
+        expect(fizzBuzz.convert(3)).toBe('Fizz')
+        expect(fizzBuzz.convert(4)).toBe('4')
+        expect(fizzBuzz.convert(5)).toBe('Buzz')
+        expect(fizzBuzz.convert(6)).toBe('Fizz')
+        expect(fizzBuzz.convert(10)).toBe('Buzz')
+        expect(fizzBuzz.convert(15)).toBe('FizzBuzz')
+        expect(fizzBuzz.convert(30)).toBe('FizzBuzz')
+      })
+    })
   })
 }
