@@ -1,6 +1,6 @@
 import { ReplaceRule } from '.'
 
-class PassThroughRule implements ReplaceRule {
+export class PassThroughRule implements ReplaceRule {
   replace(n: number): string {
     return `${n}`
   }
