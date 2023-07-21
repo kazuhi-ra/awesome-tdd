@@ -53,6 +53,28 @@ if (import.meta.vitest) {
             expect(fizzBuzz.convert(1)).toBe('FizzBuzz')
           })
         })
+
+        describe('ruleが3つ', () => {
+          const mockFizzRule: ReplaceRule = {
+            replace: vi.fn<[number], string>().mockReturnValue(''),
+          }
+          const mockBuzzRule: ReplaceRule = {
+            replace: vi.fn<[number], string>().mockReturnValue(''),
+          }
+          const mockThroughRule: ReplaceRule = {
+            replace: vi.fn<[number], string>().mockReturnValue('1'),
+          }
+
+          const fizzBuzz = new NumberConverter([
+            mockFizzRule,
+            mockBuzzRule,
+            mockThroughRule,
+          ])
+
+          it('ルールで指定した文字が返る', () => {
+            expect(fizzBuzz.convert(1)).toBe('1')
+          })
+        })
       })
     })
   })
