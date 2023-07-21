@@ -10,7 +10,7 @@ export class CyclicNumberRule implements ReplaceRule {
   }
 
   match(n: number): boolean {
-    return true
+    return n % this.#base === 0
   }
 
   apply(): string {
