@@ -1,3 +1,4 @@
 export interface ReplaceRule {
-  replace(n: number): string
+  match(n: number): boolean
+  apply(): string
 }
