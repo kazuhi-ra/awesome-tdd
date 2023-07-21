@@ -9,7 +9,7 @@ export class NumberConverter {
 
   convert(n: number): string {
     return this.#rules.reduce(
-      (accum, current) => accum + current.replace(n),
+      (accum, current) => (current.match(n) ? current.apply(n, accum) : accum),
       ''
     )
   }
